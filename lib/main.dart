@@ -12,8 +12,17 @@ void main() => runApp(MyApp());
 //   runApp(MyApp());
 // }
 
-// StatefulWidgetはappをwidgetにする
+// StatelessWidgetはappをwidgetにする
 // Flutterでは、alignment, padding, layoutを含めたすべてがWidget
+
+// StatelessWidgetはimmutable
+// すべての値はfinal
+// 値を変更することができない
+
+// StatefulWidget
+// 実装のためには2つのクラスが必要
+// StatefulWidgetクラス、Stateクラス
+// StatefulWidget自体はimmutable
 class MyApp extends StatelessWidget {
 
   // widgetはbuildメソッドを提供する
@@ -35,4 +44,13 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
+}
+
+class RandomWordsState extends State<RandomWords> {
+  // TODO: Add build method
+}
+
+class RandomWords extends StatefulWidget {
+  @override
+  RandomWordsState createState() => RandomWordsState();
 }
