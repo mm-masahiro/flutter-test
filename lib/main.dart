@@ -14,6 +14,8 @@ void main() => runApp(MyApp());
 // StatefulWidgetはappをwidgetにする
 // Flutterでは、alignment, padding, layoutを含めたすべてがWidget
 class MyApp extends StatelessWidget {
+
+  // widgetはbuildメソッドを提供する
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -23,6 +25,8 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text('Welcome to Flutter'),
         ),
+
+        // Center widgetがwidget subtreeをcenterに並べる
         body: Center(
           child: Text('Hello World'),
         ),
