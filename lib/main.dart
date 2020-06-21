@@ -6,6 +6,11 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
+// ↑は↓と同じ
+// main() {
+//   runApp(MyApp());
+// }
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
