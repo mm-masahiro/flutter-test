@@ -26,17 +26,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Welcome to Flutter',
-      // Scaffold Widgetがレイアウトを提供してくれている
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Welcome to Flutter!!!'),
-        ),
-
-        // Center widgetがwidget subtreeをcenterに並べる
-        body: Center(
-          child: RandomWords()
-        ),
-      ),
+      home: RandomWords(),
     );
   }
 }
@@ -55,11 +45,16 @@ class RandomWordsState extends State<RandomWords> {
 
   @override
   Widget build(BuildContext context) {
-    final wordPair = WordPair.random();
-    return Text(wordPair.asPascalCase);
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Startup Name Generator!!'),
+      ),
+      body: _buildSuggestions(),
+    );
   }
 
   // ListViewを構築する
+  // DividerかListTitleを返す
   _buildSuggestions() {
     return ListView.builder(
       padding: const EdgeInsets.all(16.0),
@@ -67,9 +62,10 @@ class RandomWordsState extends State<RandomWords> {
         if (i.isOdd) return Divider(); /*2*/
 
         final index = i ~/ 2; /*3*/
+        // ここで無限スクロールにしてる
         if (index >= _suggestions.length) {
           _suggestions.addAll(generateWordPairs().take(10)); /*4*/
-        }
+        };
         return _buildRow(_suggestions[index]);
       });
   }
