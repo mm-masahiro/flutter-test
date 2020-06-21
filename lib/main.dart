@@ -19,33 +19,32 @@ void main() => runApp(MyApp());
 // すべての値はfinal
 // 値を変更することができない
 
-// StatefulWidget
-// 実装のためには2つのクラスが必要
-// StatefulWidgetクラス、Stateクラス
-// StatefulWidget自体はimmutable
 class MyApp extends StatelessWidget {
 
   // widgetはbuildメソッドを提供する
   @override
   Widget build(BuildContext context) {
-    final wordPair = WordPair.random();
     return MaterialApp(
       title: 'Welcome to Flutter',
       // Scaffold Widgetがレイアウトを提供してくれている
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Welcome to Flutter'),
+          title: Text('Welcome to Flutter!!!'),
         ),
 
         // Center widgetがwidget subtreeをcenterに並べる
         body: Center(
-          child: Text(wordPair.asPascalCase),
+          child: RandomWords()
         ),
       ),
     );
   }
 }
 
+// StatefulWidget
+// 実装のためには2つのクラスが必要
+// StatefulWidgetクラス、Stateクラス
+// StatefulWidget自体はimmutable
 class RandomWordsState extends State<RandomWords> {
   @override
   Widget build(BuildContext context) {
