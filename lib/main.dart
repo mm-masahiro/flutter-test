@@ -40,6 +40,8 @@ class RandomWordsState extends State<RandomWords> {
   // https://dart.dev/guides/language/language-tour
   // for saving suggested word pairings
   final _suggestions = <WordPair>[];
+  //これでお気に入りしたものを格納する
+  final _saved = Set<WordPair>();
   // for making the font size larger
   final _biggerFont = const TextStyle(fontSize: 18.0);
 
@@ -71,10 +73,16 @@ class RandomWordsState extends State<RandomWords> {
   }
 
   Widget _buildRow(WordPair pair) {
+    //単語がすでにお気に入りに登録されていないかをチェック
+    final alreadySaved = _saved.contains(pair);
     return ListTile(
       title: Text(
         pair.asPascalCase,
         style: _biggerFont,
+      ),
+      trailing: Icon(
+        alreadySaved ? Icons.favorite : Icons.favorite_border,
+        color: alreadySaved ? Colors.red : null,
       ),
     );
   }
