@@ -35,29 +35,20 @@ class MyApp extends StatelessWidget {
 // 実装のためには2つのクラスが必要
 // StatefulWidgetクラス、Stateクラス
 // StatefulWidget自体はimmutable
-class RandomWordsState extends State<RandomWords> {
+class _RandomWordsState extends State<RandomWords> {
   // 後で読む
   // https://dart.dev/guides/language/language-tour
   // for saving suggested word pairings
   final _suggestions = <WordPair>[];
   //これでお気に入りしたものを格納する
-  final _saved = Set<WordPair>();
+  final _saved = <WordPair>{};
   // for making the font size larger
   final _biggerFont = const TextStyle(fontSize: 18.0);
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Startup Name Generator!!'),
-      ),
-      body: _buildSuggestions(),
-    );
-  }
 
   // ListViewを構築する
   // DividerかListTitleを返す
-  _buildSuggestions() {
+  Widget _buildSuggestions() {
     return ListView.builder(
       padding: const EdgeInsets.all(16.0),
       itemBuilder: /*1*/ (context, i) {
@@ -67,7 +58,7 @@ class RandomWordsState extends State<RandomWords> {
         // ここで無限スクロールにしてる
         if (index >= _suggestions.length) {
           _suggestions.addAll(generateWordPairs().take(10)); /*4*/
-        };
+        }
         return _buildRow(_suggestions[index]);
       });
   }
@@ -98,9 +89,55 @@ class RandomWordsState extends State<RandomWords> {
       },
     );
   }
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Startup Name Generator!!'),
+        actions: [
+          IconButton(icon: Icon(Icons.list),
+          onPressed: _pushSaved
+          ),
+        ],
+      ),
+      body: _buildSuggestions(),
+    );
+  }
+
+  void _pushSaved() {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (BuildContext context) {
+          final tiles = _saved.map(
+            (WordPair pair) {
+              return ListTile(
+                title: Text(
+                  pair.asPascalCase,
+                  style: _biggerFont,
+                ),
+              );
+            },
+          );
+          final divided = ListTile.divideTiles(
+            context: context,
+            tiles: tiles,
+          ).toList();
+
+          return Scaffold(
+            appBar: AppBar(
+              title: Text('Saved Suggestions'),
+            ),
+            body: ListView(children: divided),
+          );
+        },
+      ),
+    );
+  }
 }
 
 class RandomWords extends StatefulWidget {
   @override
-  RandomWordsState createState() => RandomWordsState();
+  State<RandomWords> createState() => _RandomWordsState();
 }
