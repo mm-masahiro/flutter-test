@@ -26,6 +26,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Welcome to Flutter',
+      //UIの変更
+      //Themeについて書かれてる
+      //https://itome.team/blog/2019/12/flutter-advent-calendar-day12/
+      //https://qiita.com/ko2ic/items/88bc9eee52e16560529e
+      theme: ThemeData(
+        primaryColor: Colors.white,
+      ),
       home: RandomWords(),
     );
   }
