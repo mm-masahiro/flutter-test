@@ -1,6 +1,6 @@
 ---
 name: Feature
-about: 実装する新規機能
+about: 新規機能の実装
 title: ''
 labels: ''
 assignees: ''
@@ -9,5 +9,4 @@ assignees: ''
 
 ## どんな機能か
 
-
-## 参考ページ
+## 参考にしたページ
