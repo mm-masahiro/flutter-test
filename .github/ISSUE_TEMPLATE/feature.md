@@ -1,9 +1,9 @@
 ---
 name: Feature
-about: 新規機能
+about: 実装する新規機能
 title: ''
 labels: ''
-assignees: mm-masahiro
+assignees: ''
 
 ---
 
