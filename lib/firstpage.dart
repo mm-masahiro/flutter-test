@@ -77,6 +77,7 @@ class FirstPage extends StatelessWidget {
               children: [
                 Container(
                   width: 400,
+                  margin: EdgeInsets.only(bottom: 20),
                   decoration: BoxDecoration(
                     color: Colors.blue,
                     borderRadius: BorderRadius.circular(5)
@@ -92,38 +93,45 @@ class FirstPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Container(
-                      margin: EdgeInsets.only(top: 20),
                       child: Text(
-                        '約定照会'
+                        //タップしたら約定照会ページに
+                        '約定照会',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold
+                        ),
                       ),
                     ),
                     Row(
                       children: [
                         Container(
-                          margin: EdgeInsets.only(top: 20),
-                          child: Column(
-                            children: <Widget>[
-                              Text(
-                                '10（仮）',
-                                style: TextStyle(
-                                  fontSize: 30
+                          margin: EdgeInsets.only(right: 50),
+                          child: Center(
+                            child: Column(
+                              children: <Widget>[
+                                Text(
+                                  '3',
+                                  style: TextStyle(
+                                    fontSize: 30
+                                  ),
                                 ),
-                              ),
-                              Text(
-                                '約定',
-                                style: TextStyle(
-                                  fontSize: 20
-                                ),
-                              )
-                            ],
-                          ),
+                                Text(
+                                  '約定',
+                                  style: TextStyle(
+                                    fontSize: 20
+                                  ),
+                                )
+                              ],
+                            ),
+                          )
+
                         ),
                         Container(
-                          margin: EdgeInsets.only(top: 20),
+                          margin: EdgeInsets.only(right: 20),
                           child: Column(
                             children: <Widget>[
                               Text(
-                                '2（仮）',
+                                '2',
                                 style: TextStyle(
                                   fontSize: 30
                                 ),
@@ -159,6 +167,7 @@ class FirstPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
+                  margin: EdgeInsets.only(bottom: 20),
                   width: 400,
                   decoration: BoxDecoration(
                     color: Colors.blue,
@@ -174,34 +183,63 @@ class FirstPage extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Column(children: <Widget>[
-                      Text(
-                        '20（仮）'
+                    Container(
+                      child: Column(
+                        children: <Widget>[
+                          Text(
+                            '20',
+                            style: TextStyle(
+                              fontSize: 30
+                            ),
+                          ),
+                          Text(
+                            '保有銘柄数',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold
+                            ),
+                          )
+                        ],
                       ),
-                      Text(
-                        '保有銘柄数'
-                      )
-                    ],),
-                    Row(
-                      children: [
-                        Column(children: <Widget>[
-                          Text(
-                            '16'
+                    ),
+                    Container(
+                      child: Row(
+                        children: [
+                        Container(
+                          margin: EdgeInsets.only(left: 20),
+                          child: Column(
+                            children: <Widget>[
+                              Text(
+                                '16',
+                                style: TextStyle(
+                                  fontSize: 30
+                                ),
+                              ),
+                              Text(
+                                '値上がり銘柄'
+                              )
+                            ]
                           ),
-                          Text(
-                            '値上がり銘柄'
-                          )
-                        ]),
-                        Column(children: <Widget>[
-                          Text(
-                            '4'
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(left: 20),
+                          child: Column(
+                            children:  <Widget>[
+                              Text(
+                                '4',
+                                style: TextStyle(
+                                  fontSize: 30
+                                ),
+                              ),
+                              Text(
+                                '値下がり銘柄',
+                              )
+                            ]
                           ),
-                          Text(
-                            '値下がり銘柄'
-                          )
-                        ])
+                        ),
                       ]
-                    )
+                      ),
+                    ),
                   ]
                 )
               ]
