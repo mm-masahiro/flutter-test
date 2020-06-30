@@ -1,67 +1,26 @@
-// import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
-// class Menu extends StatelessWidget {
-//   final Widget menu = Container(
-//     child: BottomNavigationBar(
-//       items: <BottomNavigationBarItem>[
-//         BottomNavigationBarItem(
-//           backgroundColor: Colors.blue,
-//           icon: Icon(Icons.home),
-//           title: Text(
-//             'Home',
-//             style: TextStyle(
-//               color: Colors.black
-//             ),
-//           )
-//         ),
-//         BottomNavigationBarItem(
-//           backgroundColor: Colors.blue,
-//           icon: Icon(Icons.search),
-//           title: Text(
-//             'Search',
-//             style: TextStyle(
-//               color: Colors.black
-//             ),
-//           )
-//         ),
-//         BottomNavigationBarItem(
-//           backgroundColor: Colors.blue,
-//           icon: Icon(Icons.receipt),
-//           title: Text(
-//             'News',
-//             style: TextStyle(
-//               color: Colors.black
-//             ),
-//           )
-//         ),
-//         BottomNavigationBarItem(
-//           backgroundColor: Colors.blue,
-//           icon: Icon(Icons.portrait),
-//           title: Text(
-//             'Asset',
-//             style: TextStyle(
-//               color: Colors.black
-//             ),
-//           )
-//         )
-  //     ]
-  //   ),
-  // );
+class Menu extends StatelessWidget {
 
-//   test
-//   final Widget menu = Row(
-//     children: <Widget>[
-//       Container(
-//         width: MediaQuery.of(context).size.width,
-//         child: Icon(Icons.home)
-//       ),
-//     ]
-//   )
+  final Icon icon;
+  final Color color;
+  final double height;
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       child: menu,
-//     );
-//   }
-// }
+  Menu({
+    this.icon,
+    this.color,
+    this.height
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 60,
+      width: MediaQuery.of(context).size.width/4,
+      decoration: BoxDecoration(
+        color: color
+      ),
+      child: icon,
+    );
+  }
+}
