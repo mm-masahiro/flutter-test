@@ -3,13 +3,9 @@ import 'package:flutter/material.dart';
 class Menu extends StatelessWidget {
 
   final Icon icon;
-  final Color color;
-  final double height;
 
   Menu({
     this.icon,
-    this.color,
-    this.height
   });
 
   @override
@@ -18,7 +14,7 @@ class Menu extends StatelessWidget {
       height: 60,
       width: MediaQuery.of(context).size.width/4,
       decoration: BoxDecoration(
-        color: color
+        color: Colors.grey
       ),
       child: icon,
     );

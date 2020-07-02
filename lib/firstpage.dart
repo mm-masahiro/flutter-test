@@ -10,7 +10,13 @@ class FirstPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Stock Demo Trade app'),
+          title: Text(
+            'Stock Demo Trade app',
+            style: TextStyle(
+              color: Colors.white
+            ),
+          ),
+          backgroundColor: Colors.blue,
         ),
         body: ListView(
             children: [
@@ -23,23 +29,15 @@ class FirstPage extends StatelessWidget {
           children: [
             Menu(
               icon: Icon(Icons.home),
-              color: Colors.grey,
-              height: 60
             ),
             Menu(
               icon: Icon(Icons.search),
-              color: Colors.grey,
-              height: 60
             ),
             Menu(
               icon: Icon(Icons.receipt),
-              color: Colors.grey,
-              height: 60
             ),
             Menu(
               icon: Icon(Icons.portrait),
-              color: Colors.grey,
-              height: 60
             ),
           ]
         ),
