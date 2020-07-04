@@ -51,7 +51,7 @@ class _FirstPageState extends State<FirstPage> {
         });
       },
       child: Menu(
-        icon: Icon(icon),
+        icon: Icon(icon, color: index == _selectedItemIndex ? Colors.blue : Colors.grey),
         title: title,
         color: index == _selectedItemIndex ? Colors.grey : Colors.grey.withOpacity(0.2),
       ),
