@@ -34,37 +34,25 @@ class _FirstPageState extends State<FirstPage> {
         ),
         bottomNavigationBar: Row(
           children: <Widget>[
-            buildNavBarItem(Icons.home, 0, true),
-            buildNavBarItem(Icons.search, 1, false),
-            buildNavBarItem(Icons.receipt, 2, false),
-            buildNavBarItem(Icons.portrait, 3, false),
-            // Menu(
-            //   icon: Icon(Icons.search),
-            //   title: Text('Search'),
-            // ),
-            // Menu(
-            //   icon: Icon(Icons.receipt),
-            //   title: Text('News'),
-            // ),
-            // Menu(
-            //   icon: Icon(Icons.portrait),
-            //   title: Text('My Page'),
-            // ),
+            buildNavBarItem(Icons.home, 0, Text('Home')),
+            buildNavBarItem(Icons.search, 1, Text('Search')),
+            buildNavBarItem(Icons.receipt, 2, Text('News')),
+            buildNavBarItem(Icons.portrait, 3, Text('My page')),
           ]
         ),
       );
   }
 
-  Widget buildNavBarItem(IconData icon,int index, bool isActive) {
+  Widget buildNavBarItem(IconData icon,int index, Text title) {
     return GestureDetector(
       onTap: (){
         setState(() {
           _selectedItemIndex = index;
         });
       },
-          child: Menu(
+      child: Menu(
         icon: Icon(icon),
-        title: Text('Home'),
+        title: title,
         color: index == _selectedItemIndex ? Colors.grey : Colors.grey.withOpacity(0.2),
       ),
     );
