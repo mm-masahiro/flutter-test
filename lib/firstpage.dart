@@ -49,6 +49,7 @@ class _FirstPageState extends State<FirstPage> {
         setState(() {
           _selectedItemIndex = index;
         });
+       Navigator.of(context).pushNamed('/search');
       },
       child: Menu(
         icon: Icon(icon, color: index == _selectedItemIndex ? Colors.blue : Colors.grey),

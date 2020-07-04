@@ -29,7 +29,7 @@ class Menu extends StatelessWidget {
           Container(
             height: 16,
             child: title,
-          )
+          ),
         ]
       ),
     );
