@@ -4,28 +4,21 @@ class Menu extends StatelessWidget {
 
   final Icon icon;
   final Text title;
+  final Color color;
 
   Menu({
     this.icon,
-    this.title
+    this.title,
+    this.color
   });
 
   @override
-  // Widget build(BuildContext context) {
-  //   return Container(
-  //     height: 60,
-  //     width: MediaQuery.of(context).size.width/4,
-  //     decoration: BoxDecoration(
-  //       color: Colors.grey
-  //     ),
-  //     child: icon,
-  //   );
   Widget build(BuildContext context) {
     return Container(
       height: 60,
       width: MediaQuery.of(context).size.width/4,
       decoration: BoxDecoration(
-        color: Colors.grey
+        color: color 
       ),
       child: Column(
         children: [
