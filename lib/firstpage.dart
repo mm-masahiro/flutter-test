@@ -29,15 +29,19 @@ class FirstPage extends StatelessWidget {
           children: [
             Menu(
               icon: Icon(Icons.home),
+              title: Text('Home'),
             ),
             Menu(
               icon: Icon(Icons.search),
+              title: Text('Search'),
             ),
             Menu(
               icon: Icon(Icons.receipt),
+              title: Text('News'),
             ),
             Menu(
               icon: Icon(Icons.portrait),
+              title: Text('My Page'),
             ),
           ]
         ),
