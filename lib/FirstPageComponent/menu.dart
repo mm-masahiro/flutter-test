@@ -3,9 +3,13 @@ import 'package:flutter/material.dart';
 class Menu extends StatelessWidget {
 
   final Icon icon;
+  final Text title;
+  final Color color;
 
   Menu({
     this.icon,
+    this.title,
+    this.color
   });
 
   @override
@@ -14,9 +18,20 @@ class Menu extends StatelessWidget {
       height: 60,
       width: MediaQuery.of(context).size.width/4,
       decoration: BoxDecoration(
-        color: Colors.grey
+        color: color,
       ),
-      child: icon,
+      child: Column(
+        children: [
+          Container(
+            height: 40,
+            child: icon,
+          ),
+          Container(
+            height: 16,
+            child: title,
+          ),
+        ]
+      ),
     );
   }
 }

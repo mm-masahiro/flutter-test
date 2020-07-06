@@ -1,10 +1,18 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import './FirstPageComponent/assets.dart';
 import './FirstPageComponent/trade.dart';
 import './FirstPageComponent/stock.dart';
 import './FirstPageComponent/menu.dart';
 
-class FirstPage extends StatelessWidget {
+class FirstPage extends StatefulWidget{
+  @override
+  _FirstPageState createState() => _FirstPageState();
+}
+
+class _FirstPageState extends State<FirstPage> {
+
+  int _selectedItemIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -26,21 +34,35 @@ class FirstPage extends StatelessWidget {
             ]
         ),
         bottomNavigationBar: Row(
-          children: [
-            Menu(
-              icon: Icon(Icons.home),
-            ),
-            Menu(
-              icon: Icon(Icons.search),
-            ),
-            Menu(
-              icon: Icon(Icons.receipt),
-            ),
-            Menu(
-              icon: Icon(Icons.portrait),
-            ),
+          children: <Widget>[
+            buildNavBarItem(Icons.home, 0, Text('Home')),
+            buildNavBarItem(Icons.search, 1, Text('Search')),
+            buildNavBarItem(Icons.receipt, 2, Text('News')),
+            buildNavBarItem(Icons.portrait, 3, Text('My page')),
           ]
         ),
       );
+  }
+
+  Widget buildNavBarItem(IconData icon, int index, Text title) {
+    return GestureDetector(
+      onTap: (){
+        setState(() {
+          _selectedItemIndex = index;
+        });
+        if (index == 1) {
+          Navigator.of(context).pushNamed('/search');
+        } else if (index ==2) {
+          Navigator.of(context).pushNamed('/news');
+        } else if (index == 3) {
+          Navigator.of(context).pushNamed('/mypage');
+        }
+      },
+      child: Menu(
+        icon: Icon(icon, color: index == _selectedItemIndex ? Colors.blue : Colors.grey),
+        title: title,
+        color: index == _selectedItemIndex ? Colors.grey : Colors.grey.withOpacity(0.2),
+      ),
+    );
   }
 }
