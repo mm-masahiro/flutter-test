@@ -18,7 +18,7 @@ class Menu extends StatelessWidget {
       height: 60,
       width: MediaQuery.of(context).size.width/4,
       decoration: BoxDecoration(
-        color: color 
+        color: color,
       ),
       child: Column(
         children: [
@@ -27,9 +27,9 @@ class Menu extends StatelessWidget {
             child: icon,
           ),
           Container(
-            height: 20,
+            height: 16,
             child: title,
-          )
+          ),
         ]
       ),
     );
