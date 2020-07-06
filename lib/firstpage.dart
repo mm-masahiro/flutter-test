@@ -44,13 +44,19 @@ class _FirstPageState extends State<FirstPage> {
       );
   }
 
-  Widget buildNavBarItem(IconData icon,int index, Text title) {
+  Widget buildNavBarItem(IconData icon, int index, Text title) {
     return GestureDetector(
       onTap: (){
         setState(() {
           _selectedItemIndex = index;
         });
-       Navigator.of(context).pushNamed('/search');
+        if (index == 1) {
+          Navigator.of(context).pushNamed('/search');
+        } else if (index ==2) {
+          Navigator.of(context).pushNamed('/news');
+        } else if (index == 3) {
+          Navigator.of(context).pushNamed('/mypage');
+        }
       },
       child: Menu(
         icon: Icon(icon, color: index == _selectedItemIndex ? Colors.blue : Colors.grey),
