@@ -10,7 +10,7 @@ class SearchStock extends StatelessWidget {
          color: Colors.white
        )
      ),
-     icon: Icon(Icons.search, size: 80,),
+     icon: Icon(Icons.search, size: 80, color: Colors.indigoAccent,),
      text: Text(
        '検索',
        style: TextStyle(

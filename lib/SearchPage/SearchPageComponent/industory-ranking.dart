@@ -10,7 +10,7 @@ class IndustoryRanking extends StatelessWidget {
          color: Colors.white
        )
      ),
-     icon: Icon(Icons.business, size: 80,),
+     icon: Icon(Icons.business, size: 80, color: Colors.cyan,),
      text: Text(
       '業界別ランキング',
       style: TextStyle(
