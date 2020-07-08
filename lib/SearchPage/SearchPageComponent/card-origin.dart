@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
-class  SearchCard extends StatelessWidget {
-
+class SearchCard extends StatelessWidget {
   final Text title;
+  final Icon icon;
+  final Text text;
 
-  SearchCard({
-    this.title,
-  });
+  SearchCard({this.title, this.icon, this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -15,46 +14,42 @@ class  SearchCard extends StatelessWidget {
       width: 400,
       height: 150,
       child: Card(
-        child: (
-          Expanded(
+        child: (Expanded(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+                width: 400,
+                decoration: BoxDecoration(
+                    color: Colors.blue, borderRadius: BorderRadius.circular(5)),
+                child: title),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
                 Container(
-                  width: 400,
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.circular(5)
-                  ),
-                  child: title
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Container(
-                      child: Align(
-                        alignment: Alignment.bottomLeft,
-                        // child: text,
-                      ),
+                  child: SizedBox(
+                    height: 120,
+                    width: 100,
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: icon,
                     ),
-                    Container(
-                      child: Align(
-                        alignment: Alignment.centerRight,
-                        child: Column(
-                          children: <Widget>[
-                            // text,
-                            // text,
-                          ],
-                        ),
-                      ),
-                    )
-                  ],
+                  ),
+                ),
+                Container(
+                  child: SizedBox(
+                    width: 200,
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: text,
+                    ),
+                  ),
                 )
               ],
             )
-          )
-        ),
+          ],
+        ))),
       ),
     );
-  } 
+  }
 }

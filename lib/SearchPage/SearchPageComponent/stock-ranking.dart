@@ -10,6 +10,14 @@ class StockRanking extends StatelessWidget {
          color: Colors.white
        )
      ),
+     icon: Icon(Icons.show_chart, size: 80,),
+      text: Text(
+       '各種ランキング',
+       style: TextStyle(
+         fontSize: 25,
+         fontWeight: FontWeight.bold
+       ),
+     ),
    ),
  );
 
