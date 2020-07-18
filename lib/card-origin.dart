@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class SearchCard extends StatelessWidget {
+class CardOrigin extends StatelessWidget {
   final Text title;
   final Icon icon;
   final Text text;
 
-  SearchCard({this.title, this.icon, this.text});
+  CardOrigin({this.title, this.icon, this.text});
 
   @override
   Widget build(BuildContext context) {

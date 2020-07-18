@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/MyPage/MyPageComponent/tread_history.dart';
+import './MyPageComponent/asset_status.dart';
+import './MyPageComponent/stock_status.dart';
 
 class MyPage extends StatelessWidget {
   @override
@@ -6,14 +9,20 @@ class MyPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'My Page'
+          'My Page',
+          style: TextStyle(
+            color: Colors.white
+          ),
         ),
+        backgroundColor: Colors.blue,
       ),
-      body: Container(
-        child: Text(
-          'My Pageだよ'
-        ),
-      ),
+      body: ListView(
+        children: <Widget>[
+          AssetStatus(),
+          StockStatus(),
+          TreadHistory()
+        ],
+      )
     );
   }
 }
