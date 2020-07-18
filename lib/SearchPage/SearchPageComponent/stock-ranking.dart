@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import './card-origin.dart';
+import '../../card-origin.dart';
 
 class StockRanking extends StatelessWidget {
  final Widget stockRanking = Container(
-   child: SearchCard(
+   child: CardOrigin(
      title: Text(
        'ランキング',
        style: TextStyle(
