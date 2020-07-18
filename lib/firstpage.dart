@@ -12,8 +12,6 @@ class FirstPage extends StatefulWidget{
 
 class _FirstPageState extends State<FirstPage> {
 
-  // int _selectedItemIndex = 0;
-
   @override
   // Widget build(BuildContext context) {
   //   return Scaffold(
@@ -65,45 +63,13 @@ class _FirstPageState extends State<FirstPage> {
   Widget build(BuildContext context) {
     return CupertinoTabScaffold(
       tabBar: CupertinoTabBar(
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.white,
         iconSize: 25,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home, color: Colors.white),
-            title: Text(
-              'Home',
-              style: TextStyle(
-                color: Colors.white
-              ),
-            ),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search, color: Colors.white),
-            title: Text(
-              'Search',
-              style: TextStyle(
-                color: Colors.white
-              ),
-            )
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.receipt, color: Colors.white),
-            title: Text(
-              'News',
-              style: TextStyle(
-                color: Colors.white
-              ),
-            )
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.portrait, color: Colors.white),
-            title: Text(
-              'Mypage',
-              style: TextStyle(
-                color: Colors.white
-              ),
-            )
-          )
+        items:  <BottomNavigationBarItem>[
+          buildBottomNavigationBarItem(Icons.home, 0, Text('Home')),
+          buildBottomNavigationBarItem(Icons.search, 1, Text('Search')),
+          buildBottomNavigationBarItem(Icons.receipt, 2, Text('News')),
+          buildBottomNavigationBarItem(Icons.portrait, 3, Text('Mypage'))
         ],
       ),
       tabBuilder: (context, index) {
@@ -140,6 +106,13 @@ class _FirstPageState extends State<FirstPage> {
         }
         return returnValue;
       },
+    );
+  }
+
+  BottomNavigationBarItem buildBottomNavigationBarItem(IconData icon, int index, Text title) {
+    return BottomNavigationBarItem(
+      icon: Icon(icon),
+      title: title,
     );
   }
 }
