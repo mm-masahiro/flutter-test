@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:my_app/NewsPage/viewmodels/newsArticleListViewModel.dart';
 import 'package:my_app/homepage.dart';
+import 'package:my_app/news_list.dart';
+import 'package:provider/provider.dart';
 import './SearchPage/searchpage.dart';
 import './NewsPage/newspage.dart';
 import './MyPage/mypage.dart';
@@ -92,7 +95,7 @@ class _FirstPageState extends State<FirstPage> {
           case 2:
             returnValue = CupertinoTabView(builder: (context) {
               return CupertinoPageScaffold(
-                child: NewsPage()
+                child: News()
               );
             },);
             break;
