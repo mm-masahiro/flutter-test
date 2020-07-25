@@ -12,7 +12,8 @@ class TreadHistory extends StatelessWidget {
             color: Colors.white
           ),
         ),
-        icon: Icon(Icons.swap_horizontal_circle, size: 80,),
+        icon: Icon(Icons.swap_horizontal_circle, size: 80),
+        width: 150,
       ),
     );
   }

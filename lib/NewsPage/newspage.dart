@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/drawer.dart';
 
 
 class NewsPage extends StatefulWidget {
@@ -21,6 +22,7 @@ class _NewsPageState extends State<NewsPage> {
         backgroundColor: Colors.blue,
       ),
       // body: ListView.builder()
+      drawer: Menu(),
     );
   }
 }
