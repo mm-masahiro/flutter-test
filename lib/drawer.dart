@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/MyPage/MyPageComponent/login.dart';
+import 'package:my_app/login.dart';
 
 class Menu extends StatelessWidget {
   @override
@@ -9,10 +9,18 @@ class Menu extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: <Widget>[
           DrawerHeader(
-              child: Text('Menu'),
+						child: Text(
+							'Menu',
+							style: TextStyle(
+								color: Colors.white
+							),
+						),
+						decoration: BoxDecoration(
+							color: Colors.blue
+						),
           ),
           ListTile(
-            title: Text('Item1'),
+            title: Text('ログイン'),
             onTap: () {
               Navigator.push(context, MaterialPageRoute(
                 builder: (context) {

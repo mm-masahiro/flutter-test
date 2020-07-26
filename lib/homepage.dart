@@ -3,7 +3,6 @@ import 'package:my_app/FirstPageComponent/assets.dart';
 import 'package:my_app/FirstPageComponent/stock.dart';
 import 'package:my_app/FirstPageComponent/trade.dart';
 import 'package:my_app/drawer.dart';
-import 'package:my_app/MyPage/MyPageComponent/login.dart';
 
 class HomePage extends StatelessWidget {
   @override
