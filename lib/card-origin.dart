@@ -4,14 +4,20 @@ class CardOrigin extends StatelessWidget {
   final Text title;
   final Icon icon;
   final Text text;
+  final double width;
 
-  CardOrigin({this.title, this.icon, this.text});
+  CardOrigin({
+    this.title,
+    this.icon,
+    this.text,
+    this.width
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.fromLTRB(0, 40, 0, 40),
-      width: 400,
+      width: width,
       height: 150,
       child: Card(
         child: (Expanded(

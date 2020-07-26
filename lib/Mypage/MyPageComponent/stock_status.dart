@@ -12,7 +12,8 @@ class StockStatus extends StatelessWidget {
             color: Colors.white
           ),
         ),
-        icon: Icon(Icons.folder, size: 80,),
+        icon: Icon(Icons.folder, size: 80),
+        width: 200,
       ),
     );
   }
