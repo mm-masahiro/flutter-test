@@ -19,9 +19,9 @@ class MyPage extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
-          AssetStatus(),
-          StockStatus(),
-          TreadHistory()
+          // AssetStatus(),
+          // StockStatus(),
+          // TreadHistory()
         ],
       ),
       drawer: Menu(),
