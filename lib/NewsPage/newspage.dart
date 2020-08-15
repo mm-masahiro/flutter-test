@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:my_app/NewsPage/article_model.dart';
 import 'package:my_app/NewsPage/news.dart';
 import 'package:my_app/drawer.dart';
-import 'package:http/http.dart' as http;
-import 'dart:async';
-import 'dart:convert';
-
 
 class NewsPage extends StatefulWidget {
   @override
@@ -15,23 +11,34 @@ class NewsPage extends StatefulWidget {
 class _NewsPageState extends State<NewsPage> {
 
 	List<ArticleModel> articles = List<ArticleModel>();
+	
+	bool loadingInProgress;
+	var newslist;
 
-	bool _loading = true;
+	void getNews() async {
+		News newsClass = News();
+		await newsClass.getNews();
+		setState(() {
+			loadingInProgress = false;
+			newslist = newsClass.news;
+		});
+	}
 
   @override
 	void initState() {
+		loadingInProgress = true;
 		super.initState();
 		getNews();
 	}
 
-	getNews() async {
-		News newsClass = News();
-		await newsClass.getNews();
-		articles = newsClass.news;
-		setState(() {
-		  _loading = false;
-		});
-	}
+	// void getNews() async {
+	// 	News newsClass = News();
+	// 	await newsClass.getNews();
+	// 	articles = newsClass.news;
+	// 	setState(() {
+	// 	  _loading = false;
+	// 	});
+	// }
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,33 +46,40 @@ class _NewsPageState extends State<NewsPage> {
         title: Text(
           'News',
         style: TextStyle(
-          color: Colors.black
+          color: Colors.white
         ),
         ),
         backgroundColor: Colors.blue,
       ),
-      body: _loading ? Center(
+      body: loadingInProgress ? Center(
 				child: Container(
 					child: CircularProgressIndicator(),
 				),
-      ) : Container(
-				child: Column(
-					children: <Widget>[
-						Container(
-							child: ListView.builder(
-								itemCount: articles.length,
-								shrinkWrap: true,
-								itemBuilder: (context, index) {
-									return BlogTile(
-										imageUrl: articles[index].urlToImage,
-										title: articles[index].title,
-										desc: articles[index].description,
-									);
-								},
-							),
-						)
-					],
-				),
+			) : Column(
+				children: [
+					Text(
+						'Top Head Lines',
+						style: TextStyle(
+							fontWeight: FontWeight.bold,
+							fontSize: 36
+						),
+					),
+					Divider(),
+					Expanded(
+						child: ListView.builder(
+					  	shrinkWrap: true,
+					  	itemCount: articles.length,
+							// itemCount: 10,
+					  	itemBuilder: (context, index) {
+					  		// return Text(index.toString());
+					  		return ListTile(
+					  			title: Text(articles[index].title),
+									leading: Image.network(articles[index].urlToImage),
+					  		);
+					  	},
+					  ),
+					)
+				],
 			),
       drawer: Menu(),
     );
