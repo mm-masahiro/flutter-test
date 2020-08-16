@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class ArticleModel {
 	
 	String title;
@@ -18,4 +20,15 @@ class ArticleModel {
 		this.content,
 	});
 	
+	factory ArticleModel.fromJson(Map<String, dynamic> json) {
+		return ArticleModel(
+			title: json['title'],
+			author: json['author'],
+			description: json['description'],
+			urlToImage: json['urlToImage'],
+			url: json['url'],
+			content: json['content'],
+			publishedAt: json['publishedAt']
+		);
+	}
 }

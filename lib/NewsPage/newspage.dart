@@ -25,6 +25,7 @@ class _NewsPageState extends State<NewsPage> {
 	}
 
   @override
+
 	void initState() {
 		loadingInProgress = true;
 		super.initState();
@@ -58,7 +59,7 @@ class _NewsPageState extends State<NewsPage> {
 			) : Column(
 				children: [
 					Text(
-						'Top Head Lines',
+						'Wall Street News',
 						style: TextStyle(
 							fontWeight: FontWeight.bold,
 							fontSize: 36
@@ -86,26 +87,26 @@ class _NewsPageState extends State<NewsPage> {
   }
 }
 
-class BlogTile extends StatelessWidget  {
+// class BlogTile extends StatelessWidget  {
 	
-	final String imageUrl, title, desc;
+// 	final String imageUrl, title, desc;
 
-	BlogTile({
-		@required this.imageUrl,
-		@required this.title,
-		@required this.desc
-	});
+// 	BlogTile({
+// 		@required this.imageUrl,
+// 		@required this.title,
+// 		@required this.desc
+// 	});
 
-	@override
-	Widget build(BuildContext context) {
-		return Container(
-			child: Column(
-				children: <Widget>[
-					Image.network(imageUrl),
-					Text(title),
-					Text(desc)
-				],
-			),
-		);
-	}
-}
+// 	@override
+// 	Widget build(BuildContext context) {
+// 		return Container(
+// 			child: Column(
+// 				children: <Widget>[
+// 					Image.network(imageUrl),
+// 					Text(title),
+// 					Text(desc)
+// 				],
+// 			),
+// 		);
+// 	}
+// }

@@ -1,15 +1,17 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:my_app/NewsPage/article_model.dart';
 import 'package:http/http.dart' as http;
 
 class News {
 
-	List<ArticleModel> news = []..length = 10;
+	List<ArticleModel> news;
 
 	Future<void> getNews() async {
 		String url = "http://newsapi.org/v2/everything?domains=wsj.com&apiKey=ad9a3b9e852c4fbebb12f66e2adb2ee6";
 
-		var response = await http.get(url);
+		http.Response response = await http.get(url);
 
 		var jsonData = jsonDecode(response.body);
 
