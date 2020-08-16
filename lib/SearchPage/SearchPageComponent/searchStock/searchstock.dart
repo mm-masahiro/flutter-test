@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:my_app/SearchPage/SearchPageComponent/searchStock/search_company.dart';
 // import '../../card-origin.dart';
 import 'package:my_app/card-origin.dart';
-import 'package:my_app/firstpage.dart';
 
 // class SearchStock extends StatelessWidget {
 //  final Widget searchStock = Container(
