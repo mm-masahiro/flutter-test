@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:my_app/NewsPage/article_model.dart';
 import 'package:my_app/NewsPage/news.dart';
@@ -10,19 +12,20 @@ class NewsPage extends StatefulWidget {
 
 class _NewsPageState extends State<NewsPage> {
 
-	List<ArticleModel> articles = List<ArticleModel>();
+	List<ArticleModel> articles = new List<ArticleModel>();
 	
 	bool loadingInProgress;
 	var newslist;
+	News newsClass = News();
 
-	void getNews() async {
-		News newsClass = News();
-		await newsClass.getNews();
-		setState(() {
-			loadingInProgress = false;
-			newslist = newsClass.news;
-		});
-	}
+	// void getNews() async {
+	// 	// News newsClass = News();
+	// 	await newsClass.getNews();
+	// 	setState(() {
+	// 		loadingInProgress = false;
+	// 		newslist = newsClass.news;
+	// 	});
+	// }
 
   @override
 
@@ -32,14 +35,15 @@ class _NewsPageState extends State<NewsPage> {
 		getNews();
 	}
 
-	// void getNews() async {
-	// 	News newsClass = News();
-	// 	await newsClass.getNews();
-	// 	articles = newsClass.news;
-	// 	setState(() {
-	// 	  _loading = false;
-	// 	});
-	// }
+	void getNews() async {
+		News newsClass = News();
+		await newsClass.getNews();
+		articles = newsClass.news;
+		setState(() {
+		  // _loading = false;
+			loadingInProgress = false;
+		});
+	}
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,13 +77,24 @@ class _NewsPageState extends State<NewsPage> {
 							// itemCount: 10,
 					  	itemBuilder: (context, index) {
 					  		// return Text(index.toString());
-					  		return ListTile(
-					  			title: Text(articles[index].title),
-									leading: Image.network(articles[index].urlToImage),
-					  		);
+					  		// return ListTile(
+					  		// 	title: Text(articles[index].title),
+								// 	leading: Image.network(articles[index].urlToImage),
+					  		// );
+								// return FlatButton(
+								// 	onPressed: () {
+								// 		debugDumpApp();
+								// 	},
+								// 	child: Text(articles[index].title),
+								// );
+								return BlogTile(
+									imageUrl: articles[index].urlToImage,
+									title: articles[index].title,
+									desc: articles[index].description,
+								);
 					  	},
 					  ),
-					)
+					),
 				],
 			),
       drawer: Menu(),
@@ -87,26 +102,26 @@ class _NewsPageState extends State<NewsPage> {
   }
 }
 
-// class BlogTile extends StatelessWidget  {
+class BlogTile extends StatelessWidget  {
 	
-// 	final String imageUrl, title, desc;
+	final String imageUrl, title, desc;
 
-// 	BlogTile({
-// 		@required this.imageUrl,
-// 		@required this.title,
-// 		@required this.desc
-// 	});
+	BlogTile({
+		@required this.imageUrl,
+		@required this.title,
+		@required this.desc
+	});
 
-// 	@override
-// 	Widget build(BuildContext context) {
-// 		return Container(
-// 			child: Column(
-// 				children: <Widget>[
-// 					Image.network(imageUrl),
-// 					Text(title),
-// 					Text(desc)
-// 				],
-// 			),
-// 		);
-// 	}
-// }
+	@override
+	Widget build(BuildContext context) {
+		return Container(
+			child: Column(
+				children: <Widget>[
+					Image.network(imageUrl),
+					Text(title),
+					Text(desc)
+				],
+			),
+		);
+	}
+}

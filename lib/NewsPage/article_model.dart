@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/material.dart';
 
 class ArticleModel {
 	
@@ -7,8 +8,8 @@ class ArticleModel {
 	String description;
 	String url;
 	String urlToImage;
-	DateTime publishedAt;
 	String content;
+	DateTime publishedAt;
 
 	ArticleModel({
 		this.author,
