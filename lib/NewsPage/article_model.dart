@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/material.dart';
 
 class ArticleModel {
 	
@@ -7,8 +8,8 @@ class ArticleModel {
 	String description;
 	String url;
 	String urlToImage;
-	DateTime publishedAt;
 	String content;
+	DateTime publishedAt;
 
 	ArticleModel({
 		this.author,
@@ -19,16 +20,4 @@ class ArticleModel {
 		this.publishedAt,
 		this.content,
 	});
-	
-	factory ArticleModel.fromJson(Map<String, dynamic> json) {
-		return ArticleModel(
-			title: json['title'],
-			author: json['author'],
-			description: json['description'],
-			urlToImage: json['urlToImage'],
-			url: json['url'],
-			content: json['content'],
-			publishedAt: json['publishedAt']
-		);
-	}
 }

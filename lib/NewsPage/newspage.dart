@@ -1,5 +1,8 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:my_app/NewsPage/article_model.dart';
+import 'package:my_app/NewsPage/article_view.dart';
 import 'package:my_app/NewsPage/news.dart';
 import 'package:my_app/drawer.dart';
 
@@ -10,19 +13,11 @@ class NewsPage extends StatefulWidget {
 
 class _NewsPageState extends State<NewsPage> {
 
-	List<ArticleModel> articles = List<ArticleModel>();
+	List<ArticleModel> articles = new List<ArticleModel>();
 	
 	bool loadingInProgress;
 	var newslist;
-
-	void getNews() async {
-		News newsClass = News();
-		await newsClass.getNews();
-		setState(() {
-			loadingInProgress = false;
-			newslist = newsClass.news;
-		});
-	}
+	News newsClass = News();
 
   @override
 
@@ -32,14 +27,14 @@ class _NewsPageState extends State<NewsPage> {
 		getNews();
 	}
 
-	// void getNews() async {
-	// 	News newsClass = News();
-	// 	await newsClass.getNews();
-	// 	articles = newsClass.news;
-	// 	setState(() {
-	// 	  _loading = false;
-	// 	});
-	// }
+	void getNews() async {
+		News newsClass = News();
+		await newsClass.getNews();
+		articles = newsClass.news;
+		setState(() {
+			loadingInProgress = false;
+		});
+	}
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,57 +51,83 @@ class _NewsPageState extends State<NewsPage> {
 				child: Container(
 					child: CircularProgressIndicator(),
 				),
-			) : Column(
-				children: [
-					Text(
-						'Wall Street News',
-						style: TextStyle(
-							fontWeight: FontWeight.bold,
-							fontSize: 36
-						),
-					),
-					Divider(),
-					Expanded(
-						child: ListView.builder(
-					  	shrinkWrap: true,
-					  	itemCount: articles.length,
-							// itemCount: 10,
-					  	itemBuilder: (context, index) {
-					  		// return Text(index.toString());
-					  		return ListTile(
-					  			title: Text(articles[index].title),
-									leading: Image.network(articles[index].urlToImage),
-					  		);
-					  	},
-					  ),
-					)
-				],
+			) : Container(
+				padding: EdgeInsets.symmetric(horizontal: 16),
+				child: Column(
+			  	children: [
+			  		Text(
+			  			'Headline News',
+			  			style: TextStyle(
+			  				fontWeight: FontWeight.bold,
+			  				fontSize: 36
+			  			),
+			  		),
+			  		Divider(),
+			  		Expanded(
+			  			child: ListView.builder(
+								physics: ClampingScrollPhysics(),
+			  		  	shrinkWrap: true,
+			  		  	itemCount: articles.length,
+			  		  	itemBuilder: (context, index) {
+			  					return BlogTile(
+			  						imageUrl: articles[index].urlToImage,
+			  						title: articles[index].title,
+			  						desc: articles[index].description,
+										url: articles[index].url,
+			  					);
+			  		  	},
+			  		  ),
+			  		),
+			  	],
+			  ),
 			),
       drawer: Menu(),
     );
   }
 }
 
-// class BlogTile extends StatelessWidget  {
+class BlogTile extends StatelessWidget  {
 	
-// 	final String imageUrl, title, desc;
+	final String imageUrl, title, desc, url;
 
-// 	BlogTile({
-// 		@required this.imageUrl,
-// 		@required this.title,
-// 		@required this.desc
-// 	});
+	BlogTile({
+		@required this.imageUrl,
+		@required this.title,
+		@required this.desc,
+		@required this.url
+	});
 
-// 	@override
-// 	Widget build(BuildContext context) {
-// 		return Container(
-// 			child: Column(
-// 				children: <Widget>[
-// 					Image.network(imageUrl),
-// 					Text(title),
-// 					Text(desc)
-// 				],
-// 			),
-// 		);
-// 	}
-// }
+	@override
+	Widget build(BuildContext context) {
+		return GestureDetector(
+			onTap: () {
+				Navigator.push(context, MaterialPageRoute(
+					builder: (context) => ArticleView(
+						blogUrl: url,
+					)
+				));
+			},
+			child: Container(
+		  	margin: EdgeInsets.only(bottom: 16),
+		  	child: Column(
+		  		children: <Widget>[
+		  			ClipRRect(
+		  				borderRadius: BorderRadius.circular(6),
+		  				child: Image.network(imageUrl)
+		  			),
+		  			SizedBox(height: 8),
+		  			Text(title, style: TextStyle(
+		  				fontSize: 17,
+		  				color: Colors.black87,
+		  				fontWeight: FontWeight.w500
+		  			),),
+		  			SizedBox(height: 8),
+		  			Text(desc, style:  TextStyle(
+		  				color: Colors.black54
+		  			),)
+		  		],
+		  	),
+		  ),
+		);
+	}
+}
