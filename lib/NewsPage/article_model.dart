@@ -20,16 +20,4 @@ class ArticleModel {
 		this.publishedAt,
 		this.content,
 	});
-	
-	factory ArticleModel.fromJson(Map<String, dynamic> json) {
-		return ArticleModel(
-			title: json['title'],
-			author: json['author'],
-			description: json['description'],
-			urlToImage: json['urlToImage'],
-			url: json['url'],
-			content: json['content'],
-			publishedAt: json['publishedAt']
-		);
-	}
 }

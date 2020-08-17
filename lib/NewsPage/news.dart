@@ -10,8 +10,11 @@ class News {
 	List<ArticleModel> news = [];
 
 	Future<void> getNews() async {
-		// String url = "http://newsapi.org/v2/everything?domains=wsj.com&apiKey=ad9a3b9e852c4fbebb12f66e2adb2ee6";
-		String url = "https://newsapi.org/v2/top-headlines?country=jp&apiKey=ad9a3b9e852c4fbebb12f66e2adb2ee6";
+		//Wall Street
+		String url = "http://newsapi.org/v2/everything?domains=wsj.com&apiKey=ad9a3b9e852c4fbebb12f66e2adb2ee6";
+
+		//Top Headline News
+		// String url = "https://newsapi.org/v2/top-headlines?country=jp&apiKey=ad9a3b9e852c4fbebb12f66e2adb2ee6";
 
 		var response = await http.get(url);
 
@@ -30,8 +33,6 @@ class News {
 						content: element['content']
 					);
 					news.add(articleModel);
-					// print(articleModel.title);
-					debugPrint(articleModel.title);
 				}
 			});
 		}
