@@ -28,7 +28,6 @@ class _NewsPageState extends State<NewsPage> {
 	}
 
 	void getNews() async {
-		News newsClass = News();
 		await newsClass.getNews();
 		articles = newsClass.news;
 		setState(() {
@@ -41,9 +40,9 @@ class _NewsPageState extends State<NewsPage> {
       appBar: AppBar(
         title: Text(
           'News',
-        style: TextStyle(
-          color: Colors.white
-        ),
+					style: TextStyle(
+						color: Colors.white
+					),
         ),
         backgroundColor: Colors.blue,
       ),
