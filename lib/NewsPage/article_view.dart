@@ -1,9 +1,6 @@
 import 'dart:async';
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-import 'package:my_app/NewsPage/news.dart';
 
 
 class ArticleView extends StatefulWidget {
@@ -20,8 +17,23 @@ class ArticleView extends StatefulWidget {
 class _ArticleViewState extends State<ArticleView> {
 
 	final Completer<WebViewController> _completer = Completer<WebViewController>();
+	bool loadingInProgress = true;
+	Future<_ArticleViewState> articleview;
 
 	@override
+
+	// void initState() {
+	// 	loadInProgress = true;
+	// 	super.initState();
+	// 	waitArticle();
+	// }
+
+	// void waitArticle() async {
+	// 	await articleview;
+	// 	setState(() {
+	// 	  loadInProgress = false;
+	// 	});
+	// }
 
 	Widget build(BuildContext context) {
 		return Scaffold(

@@ -15,7 +15,7 @@ class _NewsPageState extends State<NewsPage> {
 
 	List<ArticleModel> articles = new List<ArticleModel>();
 	
-	bool loadingInProgress;
+	bool loadingInProgress = true;
 	var newslist;
 	News newsClass = News();
 
