@@ -3,7 +3,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/NewsPage/article_model.dart';
 import 'package:http/http.dart' as http;
-import 'dart:developer' as developer;
 
 class News {
 

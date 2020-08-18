@@ -1,7 +1,7 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+
 
 class ArticleView extends StatefulWidget {
 
@@ -17,14 +17,36 @@ class ArticleView extends StatefulWidget {
 class _ArticleViewState extends State<ArticleView> {
 
 	final Completer<WebViewController> _completer = Completer<WebViewController>();
+	bool loadingInProgress = true;
+	Future<_ArticleViewState> articleview;
 
 	@override
+
+	// void initState() {
+	// 	loadInProgress = true;
+	// 	super.initState();
+	// 	waitArticle();
+	// }
+
+	// void waitArticle() async {
+	// 	await articleview;
+	// 	setState(() {
+	// 	  loadInProgress = false;
+	// 	});
+	// }
+
 	Widget build(BuildContext context) {
 		return Scaffold(
 			appBar: AppBar(
-				title: Text('aa'),
+				title: Text(
+					'News',
+					style: TextStyle(
+						color: Colors.white
+					),
+				),
+				backgroundColor: Colors.blue
 			),
-			body: Container(
+			body:  Container(
 				height: MediaQuery.of(context).size.height,
 				width: MediaQuery.of(context).size.width,
 		  	child: WebView(
