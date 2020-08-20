@@ -191,26 +191,26 @@ class _Login extends State<Login> {
       //             });
       //           },
       //         ),
-      //         RaisedButton(
-      //           onPressed: () async {
-      //             try {
-      //               final FirebaseAuth auth = FirebaseAuth.instance;
-      //               final AuthResult result = await auth.signInWithEmailAndPassword(email: loginUserEmail, password: loginUserPassword);
-      //               final FirebaseUser user = result.user;
-      //               setState(() {
-      //                 infoText = "OK:${user.email}";
-      //               });
-      //             } catch (e) {
-      //               setState(() {
-      //                 infoText = "NG:${e.message}";
-      //               });
-      //             }
-      //           },
-      //           child: Text("Login"),
-      //         ),
-      //         Text(infoText)
-      //       ],
-      //     ),
+              // RaisedButton(
+              //   onPressed: () async {
+              //     try {
+              //       final FirebaseAuth auth = FirebaseAuth.instance;
+              //       final AuthResult result = await auth.signInWithEmailAndPassword(email: loginUserEmail, password: loginUserPassword);
+              //       final FirebaseUser user = result.user;
+              //       setState(() {
+              //         infoText = "OK:${user.email}";
+              //       });
+              //     } catch (e) {
+              //       setState(() {
+              //         infoText = "NG:${e.message}";
+              //       });
+              //     }
+              //   },
+              //   child: Text("Login"),
+              // ),
+          //     Text(infoText)
+          //   ],
+          // ),
       //   ),
       // ),
     );
