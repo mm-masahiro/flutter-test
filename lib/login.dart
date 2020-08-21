@@ -30,26 +30,27 @@ class _Login extends State<Login> {
         backgroundColor: Colors.blue,
       ),
       body: Column(
-				// mainAxisAlignment: MainAxisAlignment.center,
+				crossAxisAlignment: CrossAxisAlignment.center,
+				mainAxisAlignment: MainAxisAlignment.center,
 				children: <Widget>[
 					SizedBox(
 						height: 20,
 					),
 					Padding(
 						padding: EdgeInsets.symmetric(horizontal: 20),
-						child: Column(
-							crossAxisAlignment: CrossAxisAlignment.start,
-							children: [
-								Text(
-									"aa",
-									style: TextStyle(
-										color: Colors.white,
-										fontWeight: FontWeight.bold,
-										fontSize: 30
-									),
-								)
-							],
-						),
+						// child: Column(
+						// 	crossAxisAlignment: CrossAxisAlignment.start,
+						// 	children: [
+						// 		Text(
+						// 			"aa",
+						// 			style: TextStyle(
+						// 				color: Colors.white,
+						// 				fontWeight: FontWeight.bold,
+						// 				fontSize: 30
+						// 			),
+						// 		)
+						// 	],
+						// ),
 					),
 					Center(
 						child: Container(
