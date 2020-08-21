@@ -94,7 +94,7 @@ class _Login extends State<Login> {
 										));
 					  			},
 					  			child: Text(
-					  				'LOGIN',
+					  				'新規登録',
 					  				style: TextStyle(
 					  					color: Colors.black
 					  				),
