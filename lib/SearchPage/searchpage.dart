@@ -18,10 +18,7 @@ class SearchPage extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
-          // SearchStock(),
-					SearchCompany(),
-          // StockRanking(),
-          // IndustoryRanking()
+					// SearchCompany(),
         ],
       ),
       drawer: Menu(),
